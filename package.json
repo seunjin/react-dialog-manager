@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "biome check .",
+    "format": "biome format . --write"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "biome check --apply"
+    ]
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "biome": "^0.3.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1"
+  }
+}
