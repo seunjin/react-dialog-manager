@@ -1,8 +1,22 @@
 {
+  "name": "react-dialog-manager",
+  "private": true,
+  "workspaces": [
+    "library",
+    "test",
+    "example"
+  ],
   "scripts": {
     "prepare": "husky install",
     "lint": "biome check .",
-    "format": "biome format . --write"
+    "format": "biome format . --write",
+    "build:lib": "yarn workspace library build",
+    "build:test": "yarn workspace test build",
+    "build:example": "yarn workspace example build",
+    "dev:lib": "yarn workspace library dev",
+    "dev:test": "yarn workspace test dev",
+    "dev:example": "yarn workspace example dev",
+    "deploy:example": "yarn workspace example build && npx gh-pages -d example/dist"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
