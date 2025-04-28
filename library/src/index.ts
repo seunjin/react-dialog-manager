@@ -1,4 +1,2 @@
-// library/src/index.ts
-export const helloDialog = () => {
-  return "Hello from Dialog Manager!";
-};
+export { useDialogManager } from "./hooks/useDialogManager";
+export { DialogRenderer } from "./components/DialogRenderer";
