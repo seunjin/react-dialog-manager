@@ -7,9 +7,7 @@
     "jsx": "react-jsx",
     "strict": true,
     "declaration": true,
-    "declarationDir": "./dist/types",
-    "emitDeclarationOnly": false,
-    "outDir": "./dist",
+    "outDir": "dist",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
