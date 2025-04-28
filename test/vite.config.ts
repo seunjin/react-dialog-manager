@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      library: path.resolve(__dirname, "../library/src"),
+      "@react-dialog-manager": path.resolve(__dirname, "../library/dist"),
     },
   },
   server: {
