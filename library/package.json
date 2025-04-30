@@ -4,13 +4,14 @@
   "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "vite build"
+    "build": "rm -rf dist && tsc -p tsconfig.json && vite build"
   },
   "devDependencies": {
     "@types/node": "^22.15.0",
     "@vitejs/plugin-react": "^4.4.1",
+    "typescript": "^5.8.3",
     "vite": "^6.3.3"
   }
 }
