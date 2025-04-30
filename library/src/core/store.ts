@@ -17,7 +17,7 @@ function notify() {
 
 export const dialogStore = {
   /** dialogs 배열 반환 */
-  getSnapshot: () => [...dialogs],
+  getSnapshot: () => dialogs,
 
   /** dialogs 변경 시 구독 */
   subscribe: (callback: () => void) => {

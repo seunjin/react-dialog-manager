@@ -6,7 +6,6 @@ export const useDialogManager = () => {
     dialogStore.subscribe,
     dialogStore.getSnapshot
   );
-
   return {
     /** dialogs 배열 반환 */
     dialogs,
