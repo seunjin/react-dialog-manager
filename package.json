@@ -1,5 +1,5 @@
 {
-  "name": "react-dialog-manager",
+  "name": "react-dialog-manager-monorepo",
   "private": true,
   "workspaces": [
     "library",
@@ -10,10 +10,10 @@
     "prepare": "husky install",
     "lint": "biome check .",
     "format": "biome format . --write",
-    "build:lib": "yarn workspace library build",
+    "build:lib": "yarn workspace react-dialog-manager build",
     "build:test": "yarn workspace test build",
     "build:example": "yarn workspace example build",
-    "dev:lib": "yarn workspace library dev",
+    "dev:lib": "yarn workspace react-dialog-manager dev",
     "dev:test": "yarn workspace test dev",
     "dev:example": "yarn workspace example dev",
     "deploy:example": "yarn workspace example build && npx gh-pages -d example/dist"
@@ -30,5 +30,6 @@
     "biome": "^0.3.3",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1"
-  }
+  },
+  "packageManager": "yarn@4.9.1"
 }
