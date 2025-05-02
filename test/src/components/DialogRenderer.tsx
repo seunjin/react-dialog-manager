@@ -1,5 +1,4 @@
-import { useDialogManager } from "@react-dialog-manager";
-
+import { useDialogManager } from "react-dialog-manager";
 export default function DialogRenderer() {
   const {
     dialogs,
@@ -27,12 +26,8 @@ export default function DialogRenderer() {
         <button
           onClick={() =>
             openDialog({
-              type: "",
+              type: "alert",
               content: <DialogContent />,
-              options: {
-                title: "",
-                content: "",
-              },
             })
           }
         >
@@ -82,9 +77,8 @@ function DialogContent() {
         <button
           onClick={() =>
             openDialog({
-              type: "alert",
+              type: "bottom-sheet",
               content: <DialogContent2 />,
-              options: { message: "asdasd" },
             })
           }
         >
