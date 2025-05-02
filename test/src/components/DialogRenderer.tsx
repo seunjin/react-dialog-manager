@@ -28,6 +28,7 @@ export default function DialogRenderer() {
             openDialog({
               type: "alert",
               content: <DialogContent />,
+              options: {},
             })
           }
         >
@@ -79,6 +80,7 @@ function DialogContent() {
             openDialog({
               type: "bottom-sheet",
               content: <DialogContent2 />,
+              options: {},
             })
           }
         >
