@@ -1,15 +1,6 @@
-import { useDialogManager } from "react-dialog-manager";
+import { dialogs, dialogStore } from "../store/dialogStore";
+
 export default function DialogRenderer() {
-  const {
-    dialogs,
-    openDialog,
-    closeAllRender,
-    closeLastRender,
-    removeClosed,
-    removeAllDialogs,
-    removeLastDialog,
-  } = useDialogManager();
-  console.log(dialogs);
   return (
     <div style={{ padding: "40px" }}>
       <h1>Dialog Manager Test</h1>
@@ -25,10 +16,12 @@ export default function DialogRenderer() {
       >
         <button
           onClick={() =>
-            openDialog({
+            dialogStore.openDialog({
               type: "alert",
               content: <DialogContent />,
-              options: {},
+              options: {
+                title: "sd",
+              },
             })
           }
         >
@@ -37,11 +30,11 @@ export default function DialogRenderer() {
       </div>
 
       {/* Dialog 렌더링 */}
-      {dialogs.map((dialog) => (
+      {dialogs().map((dialog) => (
         <div
           key={dialog.id}
-          onAnimationEnd={() => removeClosed()}
-          onClick={() => closeLastRender()}
+          onAnimationEnd={dialogStore.removeClosed}
+          onClick={dialogStore.closeLastRender}
           className={dialog.isRender ? "dialog-fadein" : "dialog-fadeout"}
           style={{
             position: "fixed",
@@ -61,7 +54,6 @@ export default function DialogRenderer() {
 }
 
 function DialogContent() {
-  const { openDialog, closeLastRender } = useDialogManager();
   return (
     <div
       style={{
@@ -77,28 +69,21 @@ function DialogContent() {
       <div>
         <button
           onClick={() =>
-            openDialog({
-              type: "bottom-sheet",
+            dialogStore.openDialog({
+              type: "modal",
               content: <DialogContent2 />,
-              options: {},
             })
           }
         >
           중첩 모달
         </button>
-        <button onClick={closeLastRender}>닫기</button>
+        <button onClick={dialogStore.closeLastRender}>닫기</button>
       </div>
     </div>
   );
 }
 
 function DialogContent2() {
-  const {
-    removeLastDialog,
-    removeAllDialogs,
-    closeLastRender,
-    closeAllRender,
-  } = useDialogManager();
   return (
     <div
       style={{
@@ -112,8 +97,8 @@ function DialogContent2() {
       <h2>Dialog!</h2>
       <p>이건 테스트용 다이얼로그입니다.</p>
       <div>
-        <button onClick={closeLastRender}>닫기</button>
-        <button onClick={closeAllRender}>모두 닫기</button>
+        <button onClick={dialogStore.closeLastRender}>닫기</button>
+        <button onClick={dialogStore.closeAllRender}>모두 닫기</button>
       </div>
     </div>
   );
