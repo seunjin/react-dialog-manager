@@ -1,6 +1,3 @@
-export { useDialogManager } from "./hooks/useDialogManager";
-export type {
-  DialogOptionExtendsField,
-  DialogItemExtendsField,
-  DialogItem,
-} from "./core/types";
+export { createDialogStore } from "./core/store";
+export { createUseDialogs } from "./hooks/createUseDialogs";
+export type { DialogItem } from "./core/types";
